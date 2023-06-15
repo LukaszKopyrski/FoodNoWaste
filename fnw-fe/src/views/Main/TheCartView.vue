@@ -4,7 +4,7 @@
 
 
 <script>
-import TheCart from '../../components/Main/TheCart.vue';
+import TheCart from '@/components/Main/TheCart.vue';
 export default{
     components:{
         TheCart

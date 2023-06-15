@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TheMIT from '../../components/Main/TheMIT.vue';
+import TheMIT from '@/components/Main/TheMIT.vue';
 export default{
     components:{
         TheMIT

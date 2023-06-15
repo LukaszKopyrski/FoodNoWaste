@@ -6,7 +6,7 @@
 
 
 <style scoped>
-#main{
+RouterView{
     height: 100vh;
 }
 </style>

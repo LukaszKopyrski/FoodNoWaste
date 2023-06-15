@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TheCard from '../../components/Main/TheCard.vue';
+import TheCard from '@/components/Main/TheCard.vue';
 export default{
     components:{
         TheCard

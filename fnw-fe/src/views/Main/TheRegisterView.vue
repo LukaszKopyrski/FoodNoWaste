@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TheRegister from '../../components/Main/TheRegister.vue';
+import TheRegister from '@/components/Main/TheRegister.vue';
 export default{
     components:{
         TheRegister

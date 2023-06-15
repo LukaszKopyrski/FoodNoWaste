@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TheRegisterAdmin from '../../components/Main/TheRegisterAdmin.vue';
+import TheRegisterAdmin from '@/components/Main/TheRegisterAdmin.vue';
 export default{
     components:{
         TheRegisterAdmin

@@ -1,12 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import TheListView from '../views/Main/TheListView.vue'
-import TheLoginView from '../views/Main/TheLoginView.vue'
-import TheRegisterView from '../views/Main/TheRegisterView.vue'
-import TheMITView from '../views/Main/TheMITView.vue'
-import TheContactView from '../views/Main/TheContactView.vue'
-import TheAboutView from '../views/Main/TheAboutView.vue'
-import TheRegisterAdminView from '../views/Main/TheRegisterAdminView.vue'
-import TheCartView from '../views/Main/TheCartView.vue'
+import TheListView from '@/views/Main/TheListView.vue'
+import TheLoginView from '@/views/Main/TheLoginView.vue'
+import TheRegisterView from '@/views/Main/TheRegisterView.vue'
+import TheMITView from '@/views/Main/TheMITView.vue'
+import TheContactView from '@/views/Main/TheContactView.vue'
+import TheAboutView from '@/views/Main/TheAboutView.vue'
+import TheRegisterAdminView from '@/views/Main/TheRegisterAdminView.vue'
+import TheCartView from '@/views/Main/TheCartView.vue'
 const routes = [
   {
     path: '/',

@@ -27,5 +27,8 @@ THE SOFTWARE.
 </template>
 
 <style scoped>
-
+p{
+    padding: 10px;
+    font-size: 1.2rem;
+}
 </style>

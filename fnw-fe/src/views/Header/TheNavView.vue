@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TheNav from '../../components/Header/TheNav.vue';
+import TheNav from '@/components/Header/TheNav.vue';
 export default{
     components:{
         TheNav

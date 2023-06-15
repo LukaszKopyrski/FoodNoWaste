@@ -1,4 +1,4 @@
-# Food no waste
+# rfw
 
 ## Project setup
 ```

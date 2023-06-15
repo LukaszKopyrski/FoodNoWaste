@@ -1,8 +1,8 @@
 <template>
     <div class="card" style="background-color: #ebebeb;  width: 18rem; margin: 10px;">
-  <img class="card-img-top" src="#" alt="Card image cap">
+  <img class="card-img-top" :src="img.path" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Nazwa firmy</h5>
+    <h5 class="card-title">Nazwa firmy  </h5>
     <ul id="card-info">
       <li class="info">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
@@ -28,8 +28,19 @@
     <p class="card-text">Krótki opis oferty</p>
     <a href="#" class="btn btn-primary">Dodaj do koszyka</a>
   </div>
+  
+  
 </div>
 </template>
+
+<script>
+export default{
+  props:{
+    img:Object
+  }
+}
+</script>
+
 <style scoped>
 .info{
   list-style-type: none;
