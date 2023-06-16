@@ -1,4 +1,4 @@
-package fnw_be.database.controller;
+package fnw_be.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -6,6 +6,7 @@ import fnw_be.database.data.Registration;
 import fnw_be.database.repository.RegistrationRepoTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +20,7 @@ public class RegistrationController {
         this.repoTemplate = repoTemplate;
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/registration/response", method = RequestMethod.POST)
     ResponseEntity<Registration> register(@RequestBody String registrationString) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();

@@ -21,7 +21,7 @@ public class Registration {
         @Column(nullable = false, length = 30)
         private String lastName;
 
-        @Column(name = "phone_number" , nullable = false, length = 64)
+        @Column(nullable = false, length = 64)
         private String phoneNumber;
 
         @Column(nullable = false, length = 64)
