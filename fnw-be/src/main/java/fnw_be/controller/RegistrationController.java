@@ -11,10 +11,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 
 @Controller
 public class RegistrationController {
+
     RegistrationRepoTemplate repoTemplate;
+
 
     public RegistrationController(RegistrationRepoTemplate repoTemplate) {
         this.repoTemplate = repoTemplate;
@@ -25,12 +29,22 @@ public class RegistrationController {
     ResponseEntity<Registration> register(@RequestBody String registrationString) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Registration registration = mapper.readValue(registrationString, Registration.class);
-        Registration byName = repoTemplate.findByName(registration.getName());
+        Registration byName = repoTemplate.findByEmail(registration.getEmail());
+        registration.setId(4);
         if (byName == null) {
-            repoTemplate.save(registration);
-            return ResponseEntity.ok(registration);
+            Registration save = repoTemplate.save(registration);
+            return ResponseEntity.ok(save);
         }
         return ResponseEntity.badRequest().build(); //Status 400
     }
+
+    @CrossOrigin(origins = "*")
+    @RequestMapping(value = "/registration/allUsers", method = RequestMethod.GET)
+    ResponseEntity<List<Registration>> getAllUsers() {
+        List<Registration> all = repoTemplate.findAll();
+
+        return ResponseEntity.ok(all);
+    }
+
 
 }

@@ -1,11 +1,13 @@
 package fnw_be.database.repository;
 
 import fnw_be.database.data.Registration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
+@EnableJpaRepositories
 public class RegistrationRepoTemplate {
 
     RegistrationRepo registrationRepo;
@@ -35,4 +37,7 @@ public class RegistrationRepoTemplate {
     }
 
 
+    public Registration findByEmail(String email) {
+        return registrationRepo.findByEmail(email);
+    }
 }
