@@ -22,17 +22,9 @@ public class RegistrationRepoTemplate {
         return registrationRepo.save(registration);
     }
 
-    public void delete(Registration registration) {
-        registrationRepo.delete(registration);
+    public Registration findByEmail(String email) {
+        return registrationRepo.findByEmail(email);
     }
 
-    public Registration findById(Long id) {
-        return registrationRepo.findById(id).orElseGet(Registration::new);
-    }
-
-    public Registration findByName(String name) {
-        return registrationRepo.findByName(name);
-    }
-
-
+    public Registration findByPassword(String password) {return registrationRepo.findByPassword(password);}
 }

@@ -10,8 +10,7 @@
           <input type="checkbox" value="remember-me" data-dashlane-rid="edb67f76de68997d" data-form-type="consent,rememberme"> Remember me
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" data-dashlane-label="true" data-dashlane-rid="39bbb57564a936e3" data-form-type="action,login" data-kwimpalastatus="dead">Zaloguj się</button> <br>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" data-dashlane-label="true" data-dashlane-rid="39bbb57564a936e3" data-form-type="action,login" data-kwimpalastatus="dead" style="margin-top:10px;"><router-link to="/more" class="nav-link" style="font-size:1rem;" @click="visible=!visible">Zarejestruj się</router-link></button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" @click="login" data-dashlane-label="true" data-dashlane-rid="39bbb57564a936e3" data-form-type="action,login" data-kwimpalastatus="dead">Zaloguj się</button> <br>
     </form>
 </template>
 
@@ -22,3 +21,39 @@
     justify-content: center;
 }
 </style>
+
+
+<script >
+import axios from "axios";
+export default {
+  data(){
+    return{
+      name:'',
+      lastName:'',
+      phone:'',
+      email:'',
+      password:'',
+    }
+  },
+  methods:{
+    async login(){
+      try{
+        await axios.post(
+            'http://localhost:8082/login/response',
+            {
+              name:this.name,
+              lastName:this.lastName,
+              phoneNumber:this.phone,
+              email:this.email,
+              password:this.password
+            }
+        );
+        alert(`Zalogowano`);
+        window.open("http://localhost:8080/#/about")
+      }catch (error){
+        alert("Konto nie istnieje");
+      }
+    }
+  }
+}
+</script>
