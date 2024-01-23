@@ -5,7 +5,7 @@
       <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
         <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
       </a>
-      <span class="mb-3 mb-md-0 text-muted">2023 RFW</span>
+      <span class="mb-3 mb-md-0 text-muted">2023 Food no waste</span>
     </div>
 
     <router-link to="/license" class="nav-link" style="font-size:1rem;" @click="visible=!visible">Licencja MIT</router-link>

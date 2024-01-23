@@ -15,13 +15,16 @@
       <input type="email" id="inputEmail" class="form-control" placeholder="Adres Email" v-model="email" required="" autofocus="" data-dashlane-rid="f5111088d29d6f41" data-form-type="email" data-kwimpalastatus="alive" data-kwimpalaid="1673381633908-0">
       <label for="inputPassword" class="sr-only">Hasło</label>
       <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" v-model="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" id="inputPassword" class="form-control" placeholder="Hasło" required="" data-dashlane-rid="cc9963121605ad01" data-form-type="password" data-kwimpalastatus="alive" data-kwimpalaid="1673381633908-1">
-      <div class="checkbox mb-3">
-      </div>
+      
+      <label data-dashlane-label="true">
+          <input type="checkbox" v-model="admin" value="admin" data-dashlane-rid="edb67f76de68997d" data-form-type="consent,admin" id="admin" > Admin
+        </label>
       <button class="btn btn-lg btn-primary btn-block" @click="addUser" type="submit" data-dashlane-label="true" data-dashlane-rid="39bbb57564a936e3" data-form-type="action,login" data-kwimpalastatus="dead" style="margin-top:10px;"><router-link to="/" class="nav-link" style="font-size:1rem;" @click="visible=!visible">Zarejestruj się</router-link></button>
     </form>
 </template>
 
 <script >
+import router from "@/router";
 import axios from "axios";
 export default {
   data(){
@@ -31,6 +34,7 @@ export default {
       phone:'',
       email:'',
       password:'',
+      admin:false
     }
   },
   methods:{
@@ -47,6 +51,8 @@ export default {
               }
           );
           alert(`Dodano konto do bazy danych`);
+          this.$store.commit('admin', this.admin);
+          router.push('/');
         }catch (error){
           alert(error.message);
         }
