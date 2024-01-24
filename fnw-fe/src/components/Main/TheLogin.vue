@@ -1,4 +1,5 @@
 <template>
+  <section id="form">
     <form class="form-signin" style="padding: 10px; background-color: #ebebeb;" data-dashlane-rid="0e78da42bc484ac8" data-form-type="login">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
@@ -12,19 +13,26 @@
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit" @click="login" data-dashlane-label="true" data-dashlane-rid="39bbb57564a936e3" data-form-type="action,login" data-kwimpalastatus="dead">Zaloguj się</button> <br>
     </form>
+  </section>
 </template>
 
 <style scoped>
-.form-signin{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#form{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
+.form-signin{
+  margin: 10px;
+  width: 40vw;    
+}
+
 </style>
 
 
 <script >
 import axios from "axios";
+import router from "@/router";
 export default {
   data(){
     return{
@@ -32,7 +40,7 @@ export default {
       lastName:'',
       phone:'',
       email:'',
-      password:'',
+      password:''
     }
   },
   methods:{
@@ -48,8 +56,10 @@ export default {
               password:this.password
             }
         );
+        this.$store.commit('logged', true);
+    
         alert(`Zalogowano`);
-        window.open("http://localhost:8080/#/about")
+        router.push('/');
       }catch (error){
         alert("Konto nie istnieje");
       }

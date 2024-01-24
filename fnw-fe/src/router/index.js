@@ -6,6 +6,7 @@ import TheMITView from '@/views/Main/TheMITView.vue'
 import TheContactView from '@/views/Main/TheContactView.vue'
 import TheAboutView from '@/views/Main/TheAboutView.vue'
 import TheRegisterAdminView from '@/views/Main/TheRegisterAdminView.vue'
+import TheAdminPanelView from '@/views/Main/TheAdminPanelView.vue'
 import TheCartView from '@/views/Main/TheCartView.vue'
 const routes = [
   {
@@ -49,6 +50,11 @@ const routes = [
     path: '/regadmin',
     name: 'RegisterAdmin',
     component:TheRegisterAdminView
+  },
+  {
+    path:'/admin',
+    name:'admin',
+    component:TheAdminPanelView
   }
 
   

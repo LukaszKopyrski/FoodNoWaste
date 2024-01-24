@@ -15,10 +15,16 @@
                 <router-link to="/" class="nav-link" style=" font-size:1rem;" @click="visible=!visible">Strona główna</router-link>
             </li>
             <li class="nav-item">
-                <router-link to="/login" class="nav-link" style="font-size:1rem;" @click="visible=!visible">Logowanie</router-link>
+                <router-link to="/login" class="nav-link" style="font-size:1rem;" @click="visible=!visible" v-if="!isLogged">Logowanie</router-link>
             </li>
             <li class="nav-item">
-                <router-link to="/register" class="nav-link" style="font-size:1rem;" @click="visible=!visible">Rejestracja</router-link>
+                <router-link to="/myaccout" class="nav-link" style="font-size:1rem;" @click="visible=!visible" v-if="isLogged">moje konto</router-link>
+            </li>
+            <li class="nav-item">
+                <router-link to="#" class="nav-link" style="font-size:1rem;"  @click="logout" v-if="isLogged">wyloguj się</router-link>
+            </li>
+            <li class="nav-item">
+                <router-link to="/register" class="nav-link" style="font-size:1rem;" @click="visible=!visible" v-if="!isLogged">Rejestracja</router-link>
             </li>
             <li class="nav-item">
                 <router-link to="/contact" class="nav-link" style="font-size:1rem;" @click="visible=!visible">Kontakt</router-link>
@@ -38,3 +44,18 @@
    
 </template>
 
+<script>
+export default{
+  computed:{
+    isLogged(){
+      return this.$store.state.isLogged;
+    }
+  },
+  methods:{
+    logout(){
+      this.$store.commit('logged', false);
+      this.$store.commit('admin', false);
+    }
+  }
+}
+</script>
