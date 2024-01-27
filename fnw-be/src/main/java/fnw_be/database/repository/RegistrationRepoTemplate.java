@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class RegistrationRepoTemplate {
+public class RegistrationRepoTemplate{
 
     RegistrationRepo registrationRepo;
 
@@ -27,4 +27,17 @@ public class RegistrationRepoTemplate {
     }
 
     public Registration findByPassword(String password) {return registrationRepo.findByPassword(password);}
+
+    public Registration patch(String email, String password, String firstName, String lastName, String phoneNumber) {
+        Registration registration = findByEmail(email);
+        if (registration != null) {
+            registration.setPassword(password);
+            registration.setName(firstName);
+            registration.setLastName(lastName);
+            registration.setPhoneNumber(phoneNumber);
+            return save(registration);
+        }
+        return null;
+    }
+
 }

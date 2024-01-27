@@ -58,4 +58,12 @@ public class RegistrationController {
     }
 
 
+    @RequestMapping(value = "/registration/update", method = RequestMethod.PATCH)
+    ResponseEntity<Registration> updateUser(@RequestBody Registration registration) {
+        Registration updatedUser = repoTemplate.patch(registration.getEmail(), registration.getPassword(),
+                registration.getName(), registration.getLastName(), registration.getPhoneNumber());
+
+        return ResponseEntity.ok(updatedUser);
+    }
+
 }
